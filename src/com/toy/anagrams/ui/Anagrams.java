@@ -31,17 +31,21 @@
 
 package com.toy.anagrams.ui;
 
-import com.toy.anagrams.lib.WordLibrary;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
+import com.toy.anagrams.lib.WordLibrary;
 
 /**
  * Main window of the Anagram Game application.
  */
-public class Anagrams extends JFrame {
+public class Anagrams extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
@@ -77,7 +81,7 @@ public class Anagrams extends JFrame {
 
     private int wordIdx = 0;
     private WordLibrary wordLibrary;
-
+    //private int level;
     /** Creates new form Anagrams */
     public Anagrams() {
         wordLibrary = WordLibrary.getDefault();
@@ -92,6 +96,12 @@ public class Anagrams extends JFrame {
         Dimension frameSize = getSize();
         setLocation(new Point((screenSize.width - frameSize.width) / 2,
                               (screenSize.height - frameSize.width) / 2));
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+    	int level = selectLevel.getSelectedIndex() + 1;
+    	scrambledWord.setText(wordLibrary.getScrambledWordWithLevel(wordIdx, level));
     }
 
     /** This method is called from within the constructor to
@@ -217,6 +227,7 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        selectLevel.addActionListener(this);
         mainPanel.add(selectLevel, gridBagConstraints);
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
