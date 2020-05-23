@@ -81,7 +81,7 @@ public class Anagrams extends JFrame implements ActionListener {
 
     private int wordIdx = 0;
     private WordLibrary wordLibrary;
-    //private int level;
+
     /** Creates new form Anagrams */
     public Anagrams() {
         wordLibrary = WordLibrary.getDefault();
