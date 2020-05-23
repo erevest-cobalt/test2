@@ -150,6 +150,7 @@ final class StaticWordLibrary extends WordLibrary {
      * @param idx index of required word
      * @return word at that index in its natural form
      */
+
     public String getWord(int idx) {
         return WORD_LIST[idx];
     }
@@ -223,6 +224,7 @@ final class StaticWordLibrary extends WordLibrary {
     	}
     	return sb.toString();
     }
+
     /**
      * Gets the number of words in the library.
      * @return the total number of plain/scrambled word pairs in the library
