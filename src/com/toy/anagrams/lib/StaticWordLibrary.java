@@ -195,11 +195,11 @@ final class StaticWordLibrary extends WordLibrary {
 
     	if (level == 1)
     		return shuffleWordLevelOne(str);
-    	/*
-    	 * else if (level == 2)
-    	 * 	return shuffleWordLevelTwo(str);
-    	 * else if (level == 3)
-    	 * 	return shuffleWordLevelTree(str);
+
+    	else if (level == 2)
+    		return shuffleWordLevelTwo(str);
+    	/* else if (level == 3)
+    	 * 	return shuffleWordLevelThree(str);
     	 */
     	return "not yet supported";
     }
@@ -223,6 +223,27 @@ final class StaticWordLibrary extends WordLibrary {
     		}
     	}
     	return sb.toString();
+    }
+
+    private String shuffleWordLevelTwo(String str) {
+
+    	Random rand = new Random();
+    	StringBuilder sb = new StringBuilder();
+    	for(int n=0;n<2;n++) {
+    		int i = rand.nextInt(str.length()-1);
+
+    		for (int j = 0; j < str.length(); j++) {
+    			if (i == j) {
+    				sb.append(str.charAt(j+1));
+    				sb.append(str.charAt(j));
+    				j++;
+    			} else {
+    				sb.append(str.charAt(j));
+    			}
+    		}
+    		str = sb.toString();
+    	}
+    	return str;
     }
 
     /**
