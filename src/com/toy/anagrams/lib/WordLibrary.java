@@ -62,6 +62,7 @@ public abstract class WordLibrary {
      */
     public abstract String getScrambledWord(int idx);
 
+
     public abstract String getScrambledWordWithLevel(int idx, int level);
 
     /**

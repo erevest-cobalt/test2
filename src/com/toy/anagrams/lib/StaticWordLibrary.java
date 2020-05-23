@@ -186,6 +186,7 @@ final class StaticWordLibrary extends WordLibrary {
     public String getScrambledWordWithLevel(int index, int level) {
     	return shuffleWord(WORD_LIST[index], level);
     }
+
     //  Given an original string and a level whose range is 1 to 3.
     //  The higher the level, the more shuffled.
     //  Return the shuffled word corresponding to the level.
